@@ -142,7 +142,7 @@ def main(argv=None):
             raise ValueError("--run-name must be a single folder name.")
         output = code_path(RESULTS_DIR / "baselines" / args.run_name)
         if RESULTS_DIR.resolve() not in output.parents:
-            raise ValueError("Results must remain inside code/results.")
+            raise ValueError("Results must remain inside results/.")
         result = json.loads(code_path(output / "results.json").read_text(encoding="utf-8"))
         if result.get("status") != "complete":
             raise ValueError("The result summary is incomplete. Run experiments/run_experiment.py summarize first.")

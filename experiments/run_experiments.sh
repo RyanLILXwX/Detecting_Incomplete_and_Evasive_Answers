@@ -40,8 +40,8 @@ Other training options are forwarded unchanged to each selected variant.
 Hybrid uses grouped out-of-fold predictions, not reference sub-labels, as coverage features.
 This script does not generate figures.
 The subquestion variant pairs sub_questions with full answers; external labels and excerpts are ignored.
-Data paths are relative to code/; absolute paths must also remain inside code/.
-From code/, draw separately with:
+Data paths are relative to the project root; absolute paths must also remain inside it.
+From the project root, draw separately with:
   python experiments/plot_results.py --run-name comparison_v1
 HELP
 }

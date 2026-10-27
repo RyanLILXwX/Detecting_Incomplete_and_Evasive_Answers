@@ -1,0 +1,28 @@
+# Training task must be whole_qa or request.
+task_type: whole_qa
+model: ../../model/Qwen3-4B
+train_file: ../full_data_processing/full_processed_data_labeled/train_labeled.jsonl
+validation_file: ../full_data_processing/full_processed_data_labeled/validation_labeled.jsonl
+test_file: ../full_data_processing/full_processed_data_labeled/test_labeled.jsonl
+human_test_file: ../full_data_processing/full_processed_data_labeled/human_test_labeled.jsonl
+# Each run and task type should use a separate output directory.
+output_dir: ./model_output_whole_qa
+# Training duration and batch sizes.
+seed: 1101
+epochs: 3
+micro_batch: 1
+eval_batch: 4
+gradient_accumulation: 16
+# Optimizer and learning-rate schedule.
+optim: adamw_torch
+learning_rate: 0.00002
+weight_decay: 0.01
+lr_scheduler_type: cosine
+warmup_ratio: 0.05
+max_grad_norm: 1.0
+# Token length, precision, and activation memory.
+max_length: 4096
+bf16: true
+gradient_checkpointing: true
+# Full-validation rounds across training, including the final step.
+validation_rounds: 30

@@ -23,8 +23,8 @@ hybrid_method = importlib.import_module("subquestion&whole_method")
 
 CODE_DIR = Path(__file__).resolve().parents[1]
 RESULTS_DIR = CODE_DIR / "results"
-DEFAULT_HUMAN = CODE_DIR / "data/human_annotations/gold_test_120total"
-DEFAULT_LLM = CODE_DIR / "data/LLM_annotations/llm_dev_test_300/test_300.jsonl"
+DEFAULT_HUMAN = CODE_DIR / "first_round_data/human_annotated_data/first_round"
+DEFAULT_LLM = CODE_DIR / "first_round_data/LLM_annotations/llm_dev_test_300/test_300.jsonl"
 TEST_NAMES = ("human_test", "llm_test")
 VARIANT_FOLDERS = {"whole": "baseline", "subquestion": "ours", "hybrid": "hybrid"}
 
@@ -34,7 +34,7 @@ def result_directory(run_name):
         raise ValueError("--run-name must be a single folder name.")
     output = b.code_path(RESULTS_DIR / "baselines" / run_name)
     if RESULTS_DIR.resolve() not in output.parents:
-        raise ValueError("Output must remain inside code/results.")
+        raise ValueError("Output must remain inside results/.")
     return output
 
 
