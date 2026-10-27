@@ -17,7 +17,7 @@ TIMEOUT = 600
 MAX_ATTEMPTS = 3
 MAX_TOKENS = 8192
 CONCURRENCY = 8
-SPLITS = ("train", "validation", "test", "human_test")
+SPLITS = ("train", "validation", "test")
 OVERALL_LABELS = ("direct", "intermediate", "fully_evasive")
 SUB_LABELS = ("FULL", "PARTIAL", "NONE")
 ANNOTATION_FIELDS = ("overall_label", "sub_questions", "sub_question_labels")
@@ -187,7 +187,7 @@ def append_jsonl(file: TextIO, record: dict):
     file.flush()
 
 def main():
-    """Annotate records concurrently and write results and failures in the original input order."""
+    """Annotate train, validation, and test records, preserving input order."""
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     with (OUTPUT_DIR / "failed.jsonl").open("w", encoding="utf-8") as failed_file:
         for split in SPLITS:
