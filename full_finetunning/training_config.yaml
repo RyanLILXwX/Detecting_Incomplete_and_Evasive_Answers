@@ -1,12 +1,12 @@
 # Training task must be whole_qa or request.
 task_type: whole_qa
-model: ../../model/Qwen3-4B
-train_file: ../full_data_processing/full_processed_data_labeled/train_labeled.jsonl
-validation_file: ../full_data_processing/full_processed_data_labeled/validation_labeled.jsonl
-test_file: ../full_data_processing/full_processed_data_labeled/test_labeled.jsonl
-human_test_file: ../full_data_processing/full_processed_data_labeled/human_test_labeled.jsonl
+model: classified
+train_file: classified
+validation_file: classified
+test_file: classified
+human_test_file: classified
 # Each run and task type should use a separate output directory.
-output_dir: ./model_output_whole_qa
+output_dir: classified
 # Training duration and batch sizes.
 seed: 1101
 epochs: 3

@@ -15,7 +15,6 @@
 | `human_test_labeled.jsonl` | Contains 597 annotated records maintained separately from the current annotation script; 567 carry `human` and 30 carry `llm` in `annotation_by`. |
 | `failed.jsonl` | Retains 5 historical failures with `uid` and `reason`; none of these UIDs remains in the labeled datasets. |
 
-
 We removed duplicate records, records with failed annotations, and entries without a reliably identifiable question to improve data quality.
 
 | Dataset | Current records |
